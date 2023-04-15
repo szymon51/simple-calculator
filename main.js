@@ -1,3 +1,7 @@
+let firstNumber;
+let secondNumber;
+let operator;
+
 function add(firstNumber, secondNumber) {
     return firstNumber + secondNumber;
 }
@@ -12,4 +16,25 @@ function multiply(firstNumber, secondNumber) {
 
 function divide(firstNumber, secondNumber) {
     return firstNumber / secondNumber;
+}
+
+function operate(operator, firstNumber, secondNumber) {
+    let result = "";
+    switch (operator) {
+        case '+':
+            result = add(firstNumber, secondNumber);
+            break;
+        case '-':
+            result = subtract(firstNumber, secondNumber);
+            break;
+        case '*':
+            result = multiply(firstNumber, secondNumber);
+            break;
+        case '/':
+            result = divide(firstNumber, secondNumber);
+            break;
+        default:
+            result = null;
+    }
+    return result;
 }
