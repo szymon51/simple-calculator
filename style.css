@@ -29,9 +29,20 @@ body {
     align-items: space-around;
 }
 
+#numberButtons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
 #numberButtons > button {
     width: 80px;
     height: 80px;
+}
+
+#operationButtons {
+    display: flex;
+    flex-direction: column;
 }
 
 #operationButtons > button {
