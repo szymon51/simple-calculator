@@ -38,3 +38,14 @@ function operate(operator, firstNumber, secondNumber) {
     }
     return result;
 }
+
+function getButtonValue(button) {
+    return button.target.textContent; 
+}
+
+function populateInput(button) {
+    document.getElementById('inputContent').value += " " + getButtonValue(button);
+}
+
+const allButtons = document.querySelectorAll('#numberButtons > button, #operationButtons > button');
+allButtons.forEach(button => button.addEventListener('click', populateInput));
