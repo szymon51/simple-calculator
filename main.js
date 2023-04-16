@@ -75,6 +75,7 @@ function checkButtonValue(currentValue) {
             populateDisplay();
             firstValue = result;
             secondValue = undefined;
+            result = undefined;
             operatorValue = currentValue;
         } else operatorValue = currentValue;
     }
@@ -89,6 +90,7 @@ function populateDisplay() {
 }
 
 const display = document.querySelector('#display');
+display.value = 0;
 let firstValue = undefined;
 let secondValue = undefined;
 let operatorValue = "";
