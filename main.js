@@ -64,19 +64,22 @@ function checkButtonValue(currentValue) {
             if (operatorValue) {
                 display.value = 0;
                 secondValue = secondValue * 10 + Number(currentValue);
-            } else {
-            firstValue = firstValue * 10 + Number(currentValue);
-            }
+            } else firstValue = firstValue * 10 + Number(currentValue);
             populateDisplay();
     }
     else if (currentValue === "C") clearData();
+    else if (currentValue === "=") {
+        result = operate(operatorValue, firstValue, secondValue); 
+        populateDisplay();
+    }
     else {
         operatorValue = currentValue;
     }
 }
 
 function populateDisplay() {
-    if (secondValue) display.value = secondValue;
+    if (result) display.value = result;
+    else if (secondValue) display.value = secondValue;
     else display.value = firstValue;
 }
 
