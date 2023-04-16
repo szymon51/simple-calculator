@@ -45,43 +45,54 @@ function getButtonValue(button) {
 }
 
 function clearData() {
-    firstValue = 0;
-    secondValue = 0;
+    firstValue = undefined;
+    secondValue = undefined;
     display.value = 0;
-    result = 0;
+    result = undefined;
     operatorValue = "";
 }
 
 function checkButtonValue(currentValue) {
     if (Number.isInteger(Number(currentValue))) {
             if (operatorValue) {
-                display.value = 0;
-                secondValue = secondValue * 10 + Number(currentValue);
-            } else firstValue = firstValue * 10 + Number(currentValue);
+                if (secondValue === undefined) secondValue = Number(currentValue);
+                else secondValue = secondValue * 10 + Number(currentValue);
+            }else {
+                if (firstValue === undefined) firstValue = Number(currentValue);
+                else firstValue = firstValue * 10 + Number(currentValue);
+            }
             populateDisplay();
     }
     else if (currentValue === "C") clearData();
     else if (currentValue === "=") {
+        console.log(operatorValue, firstValue, secondValue);
         result = operate(operatorValue, firstValue, secondValue); 
         populateDisplay();
     }
     else {
-        operatorValue = currentValue;
+        if (operatorValue) {
+            result = operate(operatorValue, firstValue, secondValue); 
+            populateDisplay();
+            firstValue = result;
+            secondValue = undefined;
+            operatorValue = currentValue;
+        } else operatorValue = currentValue;
     }
 }
 
 function populateDisplay() {
-    if (result) display.value = result;
-    else if (secondValue) display.value = secondValue;
+    //doesn't work for result === 0 and secondValue === 0
+    console.log(firstValue, secondValue, result);
+    if (result !== undefined) display.value = result;
+    else if (secondValue !== undefined) display.value = secondValue;
     else display.value = firstValue;
 }
 
 const display = document.querySelector('#display');
-let firstValue = 0;
-let secondValue = 0;
+let firstValue = undefined;
+let secondValue = undefined;
 let operatorValue = "";
-let isSecondValue = false;
-let result = 0;
+let result = undefined;
 
 const allButtons = document.querySelectorAll('#numberButtons > button, #operationButtons > button');
 allButtons.forEach(button => button.addEventListener('click', getButtonValue));
