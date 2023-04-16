@@ -40,12 +40,17 @@ function operate(operator, firstNumber, secondNumber) {
 }
 
 function getButtonValue(button) {
-    return button.target.textContent; 
+    firstValue = button.target.textContent;
+    populateDisplay();
 }
 
-function populateInput(button) {
-    document.getElementById('inputContent').value += " " + getButtonValue(button);
+function populateDisplay() {
+    document.getElementById('inputContent').value += firstValue;
 }
+
+let firstValue = "";
+let secondValue = "";
+let operatorValue = "";
 
 const allButtons = document.querySelectorAll('#numberButtons > button, #operationButtons > button');
-allButtons.forEach(button => button.addEventListener('click', populateInput));
+allButtons.forEach(button => button.addEventListener('click', getButtonValue));
