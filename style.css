@@ -7,45 +7,39 @@ body {
 
 #calculator {
     background-color: grey;
-    width: 400px;
-    height: 500px;
+    width: 330px;
+    height: 480px;
     margin: 40px;
     padding: 20px;
 }
 
 #result {
-    width: 380px;
-    margin: 10px;
+    width: 330px;
     height: 80px;
     background-color: rgb(200,200,200);
 }
 
+button {
+    width: 80px;
+    height: 80px;
+}
 #calculatorButtons {
-    width: 380px;
-    margin: 10px;
+    width: 330px;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: space-around;
 }
 
 #numberButtons {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
 }
 
-#numberButtons > button {
-    width: 80px;
-    height: 80px;
+#clear, #zero {
+    width: 240px;
 }
 
 #operationButtons {
     display: flex;
     flex-direction: column;
-}
-
-#operationButtons > button {
-    width: 80px;
-    height: 80px;
 }
