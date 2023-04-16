@@ -52,20 +52,26 @@ function getButtonValue(button) {
 }
 
 function clearDisplay() {
+    firstValue = 0;
+    secondValue = 0;
+    display.value = "0";
 }
 
 function checkButtonValue(currentValue) {
-    if (Number.isInteger(Number(currentValue))) console.log("hello");
+    if (Number.isInteger(Number(currentValue))) {
+        firstValue = firstValue * 10 + Number(currentValue);
+    }
+    else if(currentValue === "C") clearDisplay();
+    populateDisplay();
 }
 
 function populateDisplay() {
-    if (display.value === "0") display.value = firstValue;
-    else display.value += firstValue;
+    display.value = firstValue;
 }
 
 const display = document.querySelector('#display');
-let firstValue = "";
-let secondValue = "";
+let firstValue = 0;
+let secondValue = 0;
 let operatorValue = "";
 
 const allButtons = document.querySelectorAll('#numberButtons > button, #operationButtons > button');
