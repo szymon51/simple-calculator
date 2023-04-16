@@ -41,13 +41,19 @@ function operate(operator, firstNumber, secondNumber) {
 
 function getButtonValue(button) {
     firstValue = button.target.textContent;
-    populateDisplay();
+    checkButtonValue(firstValue);    
+    if (firstValue !== "C") populateDisplay(firstValue);
+}
+
+function checkButtonValue(currentValue) {
+    if (currentValue === "C") display.value = ""; 
 }
 
 function populateDisplay() {
-    document.getElementById('inputContent').value += firstValue;
+    display.value += firstValue;
 }
 
+const display = document.querySelector('#display');
 let firstValue = "";
 let secondValue = "";
 let operatorValue = "";
