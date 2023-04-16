@@ -42,13 +42,6 @@ function operate(operator, firstNumber, secondNumber) {
 function getButtonValue(button) {
     let buttonValue = button.target.textContent;
     checkButtonValue(buttonValue);
-    //get a value
-    //check if it is a number
-    //if it is then append it to the firstValue and display firsvalue
-    //else if it is an operator check if operatorValue is empty 
-    // if yes then append the new operator
-    // if not then call the operate function
-    // pass the value of the operate function to populateDisplay
 }
 
 function clearData() {
