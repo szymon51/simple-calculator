@@ -7,16 +7,17 @@ body {
 
 #calculator {
     background-color: grey;
-    width: 330px;
-    height: 480px;
+    width: 320px;
+    height: 490px;
     margin: 40px;
-    padding: 20px;
+    padding: 15px;
 }
 
 #result {
-    width: 330px;
+    width: 320px;
     height: 80px;
     background-color: rgb(200,200,200);
+    margin-bottom: 15px;
 }
 
 button {
@@ -24,7 +25,7 @@ button {
     height: 80px;
 }
 #calculatorButtons {
-    width: 330px;
+    width: 320px;
     display: flex;
 }
 
