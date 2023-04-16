@@ -40,17 +40,27 @@ function operate(operator, firstNumber, secondNumber) {
 }
 
 function getButtonValue(button) {
-    firstValue = button.target.textContent;
-    checkButtonValue(firstValue);    
-    if (firstValue !== "C") populateDisplay(firstValue);
+    let buttonValue = button.target.textContent;
+    checkButtonValue(buttonValue);    
+    //get a value
+    //check if it is a number
+    //if it is then append it to the firstValue and display firsvalue
+    //else if it is an operator check if operatorValue is empty 
+    // if yes then append the new operator
+    // if not then call the operate function
+    // pass the value of the operate function to populateDisplay
+}
+
+function clearDisplay() {
 }
 
 function checkButtonValue(currentValue) {
-    if (currentValue === "C") display.value = ""; 
+    if (Number.isInteger(Number(currentValue))) console.log("hello");
 }
 
 function populateDisplay() {
-    display.value += firstValue;
+    if (display.value === "0") display.value = firstValue;
+    else display.value += firstValue;
 }
 
 const display = document.querySelector('#display');
