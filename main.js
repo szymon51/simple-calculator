@@ -41,7 +41,7 @@ function operate(operator, firstNumber, secondNumber) {
 
 function getButtonValue(button) {
     let buttonValue = button.target.textContent;
-    checkButtonValue(buttonValue);    
+    checkButtonValue(buttonValue);
     //get a value
     //check if it is a number
     //if it is then append it to the firstValue and display firsvalue
@@ -51,28 +51,41 @@ function getButtonValue(button) {
     // pass the value of the operate function to populateDisplay
 }
 
-function clearDisplay() {
+function clearData() {
     firstValue = 0;
     secondValue = 0;
-    display.value = "0";
+    display.value = 0;
+    result = 0;
+    operatorValue = "";
 }
 
 function checkButtonValue(currentValue) {
     if (Number.isInteger(Number(currentValue))) {
-        firstValue = firstValue * 10 + Number(currentValue);
+            if (operatorValue) {
+                display.value = 0;
+                secondValue = secondValue * 10 + Number(currentValue);
+            } else {
+            firstValue = firstValue * 10 + Number(currentValue);
+            }
+            populateDisplay();
     }
-    else if(currentValue === "C") clearDisplay();
-    populateDisplay();
+    else if (currentValue === "C") clearData();
+    else {
+        operatorValue = currentValue;
+    }
 }
 
 function populateDisplay() {
-    display.value = firstValue;
+    if (secondValue) display.value = secondValue;
+    else display.value = firstValue;
 }
 
 const display = document.querySelector('#display');
 let firstValue = 0;
 let secondValue = 0;
 let operatorValue = "";
+let isSecondValue = false;
+let result = 0;
 
 const allButtons = document.querySelectorAll('#numberButtons > button, #operationButtons > button');
 allButtons.forEach(button => button.addEventListener('click', getButtonValue));
