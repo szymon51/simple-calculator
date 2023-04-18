@@ -109,10 +109,10 @@ function populateDisplay() {
 }
 
 const display = document.querySelector('#display');
-display.value = 0;
+display.value = "0";
 let firstValue = undefined;
 let secondValue = undefined;
-let operatorValue = "";
+let operatorValue = undefined;
 let result = undefined;
 
 const allButtons = document.querySelectorAll('#numberButtons > button, #operationButtons > button');
