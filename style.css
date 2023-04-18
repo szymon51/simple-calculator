@@ -24,6 +24,7 @@ input {
     font-size: 50px;
     text-align: right;
     color: white;
+    pointer-events: none; 
 }
 
 button {

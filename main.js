@@ -120,5 +120,3 @@ allButtons.forEach(button => button.addEventListener('click', getButtonValue));
 
 const operationButtons = document.querySelectorAll('#operationButtons > button');
 makeOperationsUnavailable();
-
-equalsButton = document.getElementById("equals");
