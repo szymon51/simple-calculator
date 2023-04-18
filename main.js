@@ -31,12 +31,7 @@ function operate(operator, firstNumber, secondNumber) {
             result = multiply(firstNumber, secondNumber);
             break;
         case '/':
-            if (operator === "/" && secondNumber === 0) {
-                result = "ERROR";
-                clearData();
-            } else  {
-                result = divide(firstNumber, secondNumber);
-            }
+            result = divide(firstNumber, secondNumber);
             break;
         default:
             result = undefined;
@@ -77,8 +72,9 @@ function checkButtonValue(currentValue) {
         if (secondValue === undefined || operatorValue === undefined) {
             clearData();
             display.value = "ERROR";
-        }
-        else { 
+        } else if (operatorValue ==="/" && secondValue === 0) {
+            display.value = "ERROR";
+        } else { 
             result = operate(operatorValue, firstValue, secondValue);
             populateDisplay();
         }
