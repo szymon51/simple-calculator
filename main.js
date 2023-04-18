@@ -35,13 +35,17 @@ function operate(operator, firstNumber, secondNumber) {
                 result = "ERROR";
                 clearData();
             } else  {
-                result = divide(firstNumber, secondNumber).toFixed(7);
+                result = divide(firstNumber, secondNumber);
             }
             break;
         default:
-            result = null;
+            result = undefined;
     }
-    return result;
+    return roundNumber(result);
+}
+
+function roundNumber(number) {
+    return Math.round(number * 1000000) / 10000000;
 }
 
 function getButtonValue(button) {
@@ -75,8 +79,7 @@ function checkButtonValue(currentValue) {
             display.value = "ERROR";
         }
         else { 
-            console.log(operatorValue, firstValue, secondValue);
-            result = operate(operatorValue, firstValue, secondValue); 
+            result = operate(operatorValue, firstValue, secondValue);
             populateDisplay();
         }
     }
