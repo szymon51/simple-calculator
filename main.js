@@ -31,7 +31,10 @@ function operate(operator, firstNumber, secondNumber) {
             result = multiply(firstNumber, secondNumber);
             break;
         case '/':
-            result = divide(firstNumber, secondNumber);
+            if (operator === "/" && secondNumber === 0) {
+                result = "ERROR";
+                clearData();
+            } else result = divide(firstNumber, secondNumber);
             break;
         default:
             result = null;
@@ -88,8 +91,6 @@ function checkButtonValue(currentValue) {
 }
 
 function populateDisplay() {
-    //doesn't work for result === 0 and secondValue === 0
-    console.log(firstValue, secondValue, result);
     if (result !== undefined) display.value = result;
     else if (secondValue !== undefined) display.value = secondValue;
     else display.value = firstValue;
