@@ -34,7 +34,9 @@ function operate(operator, firstNumber, secondNumber) {
             if (operator === "/" && secondNumber === 0) {
                 result = "ERROR";
                 clearData();
-            } else result = divide(firstNumber, secondNumber);
+            } else  {
+                result = divide(firstNumber, secondNumber).toFixed(7);
+            }
             break;
         default:
             result = null;
