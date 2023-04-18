@@ -81,7 +81,8 @@ function checkButtonValue(currentValue) {
         }
     }
     else {
-        if (operatorValue) {
+        if (firstValue === undefined); 
+        else if (operatorValue) {
             result = operate(operatorValue, firstValue, secondValue); 
             populateDisplay();
             firstValue = result;
