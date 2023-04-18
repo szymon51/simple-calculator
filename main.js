@@ -28,19 +28,19 @@ function operate(operator, firstNumber, secondNumber) {
             result = subtract(firstNumber, secondNumber);
             break;
         case '*':
-            result = multiply(firstNumber, secondNumber);
+            result = roundNumber(multiply(firstNumber, secondNumber));
             break;
         case '/':
-            result = divide(firstNumber, secondNumber);
+            result = roundNumber(divide(firstNumber, secondNumber));
             break;
         default:
             result = undefined;
     }
-    return roundNumber(result);
+    return result;
 }
 
 function roundNumber(number) {
-    return Math.round(number * 1000000) / 10000000;
+    return Math.round(number * 1000000) / 1000000;
 }
 
 function getButtonValue(button) {

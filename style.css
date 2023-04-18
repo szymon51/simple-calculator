@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(60, 60, 60);
+    background-color: rgb(40, 40, 40);
     margin: 0;
     display: flex;
     justify-content: center;
@@ -7,7 +7,7 @@ body {
 }
 
 #calculator {
-    background-color: grey;
+    background-color: rgb(100, 100,100);
     width: 320px;
     height: 490px;
     margin: 40px;
@@ -19,16 +19,21 @@ input {
     padding: 0 10px;
     width: 320px;
     height: 80px;
-    background-color: rgb(200,200,200);
+    background-color: rgb(60, 60, 60);
     margin-bottom: 15px;
-    font-size: 40px;
+    font-size: 50px;
     text-align: right;
+    color: white;
 }
 
 button {
     width: 80px;
     height: 80px;
-    background-color: rgb(200, 200, 200);
+    text-decoration: none;
+    font-size: 30px;
+    background-color: rgb(60, 60, 60);
+    border-color: gray;
+    color: white;
 }
 #calculatorButtons {
     width: 320px;
@@ -49,4 +54,16 @@ button {
 #operationButtons {
     display: flex;
     flex-direction: column;
+}
+
+#operationButtons > button {
+    background-color: rgb(255, 100, 50);
+}
+
+#operationButtons > button:hover {
+    background-color: rgb(219, 75, 35);
+}
+
+#numberButtons > button:hover {
+    background-color: rgb(80, 80, 80);
 }
