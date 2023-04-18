@@ -65,9 +65,15 @@ function checkButtonValue(currentValue) {
     }
     else if (currentValue === "C") clearData();
     else if (currentValue === "=") {
-        console.log(operatorValue, firstValue, secondValue);
-        result = operate(operatorValue, firstValue, secondValue); 
-        populateDisplay();
+        if (secondValue === undefined || operatorValue === undefined) {
+            clearData();
+            display.value = "ERROR";
+        }
+        else { 
+            console.log(operatorValue, firstValue, secondValue);
+            result = operate(operatorValue, firstValue, secondValue); 
+            populateDisplay();
+        }
     }
     else {
         if (operatorValue) {
