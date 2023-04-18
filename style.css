@@ -67,3 +67,7 @@ button {
 #numberButtons > button:hover {
     background-color: rgb(80, 80, 80);
 }
+
+.notAvailable {
+    pointer-events: none;
+}

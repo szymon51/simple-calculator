@@ -15,6 +15,7 @@ function multiply(firstNumber, secondNumber) {
 }
 
 function divide(firstNumber, secondNumber) {
+    if(secondNumber === 0) result = "ERROR";
     return firstNumber / secondNumber;
 }
 
@@ -56,6 +57,14 @@ function clearData() {
     operatorValue = "";
 }
 
+function makeOperationsUnavailable() {
+    operationButtons.forEach(button => button.classList.add("notAvailable"));
+}
+
+function makeOperationsAvailable() {
+    operationButtons.forEach(button => button.classList.remove("notAvailable"));
+}
+
 function checkButtonValue(currentValue) {
     if (Number.isInteger(Number(currentValue))) {
             if (operatorValue) {
@@ -66,13 +75,12 @@ function checkButtonValue(currentValue) {
                 else firstValue = firstValue * 10 + Number(currentValue);
             }
             populateDisplay();
+            makeOperationsAvailable();
     }
     else if (currentValue === "C") clearData();
     else if (currentValue === "=") {
-        if (secondValue === undefined || operatorValue === undefined) {
-            clearData();
-            display.value = "ERROR";
-        } else if (operatorValue ==="/" && secondValue === 0) {
+        if (secondValue === undefined && operatorValue === undefined) display.value = firstValue;
+        if (operatorValue ==="/" && secondValue === 0) {
             clearData();
             display.value = "ERROR";
         } else { 
@@ -81,8 +89,8 @@ function checkButtonValue(currentValue) {
         }
     }
     else {
-        if (firstValue === undefined); 
-        else if (operatorValue) {
+        operationButtons.forEach(button => button.classList.add("notAvailable"));
+        if (operatorValue) {
             result = operate(operatorValue, firstValue, secondValue); 
             populateDisplay();
             firstValue = result;
@@ -94,7 +102,8 @@ function checkButtonValue(currentValue) {
 }
 
 function populateDisplay() {
-    if (result !== undefined) display.value = result;
+    if  (result === "ERROR") display.value = result;
+    else if (result !== undefined) display.value = result;
     else if (secondValue !== undefined) display.value = secondValue;
     else display.value = firstValue;
 }
@@ -108,3 +117,8 @@ let result = undefined;
 
 const allButtons = document.querySelectorAll('#numberButtons > button, #operationButtons > button');
 allButtons.forEach(button => button.addEventListener('click', getButtonValue));
+
+const operationButtons = document.querySelectorAll('#operationButtons > button');
+makeOperationsUnavailable();
+
+equalsButton = document.getElementById("equals");
