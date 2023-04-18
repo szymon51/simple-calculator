@@ -73,6 +73,7 @@ function checkButtonValue(currentValue) {
             clearData();
             display.value = "ERROR";
         } else if (operatorValue ==="/" && secondValue === 0) {
+            clearData();
             display.value = "ERROR";
         } else { 
             result = operate(operatorValue, firstValue, secondValue);
